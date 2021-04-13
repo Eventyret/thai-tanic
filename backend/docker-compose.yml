@@ -1,0 +1,29 @@
+# We are using 2.4 as we wnat to use depends on and was deprecated in 3
+version: "2.4"
+services:
+  strapi:
+    image: strapi/strapi:alpine
+    container_name: strapi
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # Please make sure you are using .env in the same folder for reference points
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABdocker-ASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      NODE_ENV: ${ENVIRONMENT}
+    links:
+      - postgres:postgres
+    volumes:
+      - ./app:/srv/app
+      - ./uploads:/srv/app/public/uploads
+    ports:
+      - "1337:1337"
+    networks:
+      - strapi-network
+    depends_on:
+      - postgres
