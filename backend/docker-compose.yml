@@ -27,3 +27,22 @@ services:
       - strapi-network
     depends_on:
       - postgres
+
+  postgres:
+    image: postgres:12.0-alpine
+    container_name: postgresDB
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - strapi-network
+
+networks:
+  strapi-network:
+    driver: bridge
