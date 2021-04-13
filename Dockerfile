@@ -7,6 +7,7 @@ ENV PATH=${PATH}:./node_modules/.bin
 ENV NODE_PATH=/usr/src/app/node_modules
 ADD package*.json ./
 RUN npm ci
+## This will speed up consecutive builds
 RUN ngcc
 ADD . .
 ## This can be passed incase we are using different releases for prod or stage
