@@ -1,1 +1,5 @@
-export const commonEnv = {};
+export const commonEnv = {
+  TOKEN_KEY: 'token',
+  registerEndpoint: '/auth/local/register',
+  loginEndpoint: '/auth/local',
+};
