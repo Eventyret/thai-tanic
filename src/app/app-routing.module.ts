@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPageModule } from './auth/login/login.module';
+import { RegisterPageModule } from './auth/register/register.module';
+import { HomePageModule } from './home/home.module';
+import { IntroPageModule } from './intro/intro.module';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AutologinGuard } from './shared/guards/autologin.guard';
 import { IntroGuard } from './shared/guards/intro.guard';
@@ -14,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () =>
+    loadChildren: (): Promise<RegisterPageModule> =>
       import('./auth/register/register.module').then(
         (m) => m.RegisterPageModule
       ),
@@ -22,13 +25,13 @@ const routes: Routes = [
   },
   {
     path: 'intro',
-    loadChildren: () =>
+    loadChildren: (): Promise<IntroPageModule> =>
       import('./intro/intro.module').then((m) => m.IntroPageModule),
     canLoad: [AuthGuard],
   },
   {
     path: 'home',
-    loadChildren: () =>
+    loadChildren: (): Promise<HomePageModule> =>
       import('./home/home.module').then((m) => m.HomePageModule),
     canLoad: [AuthGuard],
   },
