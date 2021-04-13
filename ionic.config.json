@@ -1,0 +1,7 @@
+{
+  "name": "Thai Tanic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
