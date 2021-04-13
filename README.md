@@ -11,6 +11,7 @@ Thai food for the easy minded
 | Strapi         | 3.5.4   | Used as backend                                                   |
 | Node           | 14.15   |                                                                   |
 | NPM            | 6.14    | Could also use yarn for more granular package management          |
+| Yarn           | 1.22.10 | For strapi                                                        |
 | Auth0          | 5.0.2   |                                                                   |
 | Formly         | 5.10.17 | Used for easier use of forms (Scaled to be use json forms)        |
 | Docker         | 20.10   | Used for deployment                                               |
@@ -63,7 +64,7 @@ ENVIRONMENT=development
 ```
 
 4. Please run `docker-compse up -d` this will run in the background.
-   PS: it will take a few minutes first time start up as it will require to download postgres and npm install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
+   PS: it will take a few minutes first time start up as it will require to download postgres and yarn install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
 5. Once started you can setup your own admin user if wanted on `http://localhost:1337/admin`
 6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
    TODO: Automate permissions on first time setup with bootstrap.js
