@@ -1,0 +1,12 @@
+node_modules/
+ios/
+android/
+.grade/
+resources/
+.git/
+e2e/
+www/
+data/
+app/
+backend/
+README.md
