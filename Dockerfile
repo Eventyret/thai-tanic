@@ -11,3 +11,8 @@ RUN ngcc
 ADD . .
 ## This can be passed incase we are using different releases for prod or stage
 RUN ng build --c=${BUILDER_ENV}
+
+### STAGE 2: Run ###
+FROM nginx:1.19.1-alpine
+COPY --from=build /usr/src/app/www /usr/share/nginx/html
+COPY ./.docker/nginx-custom.conf /etc/nginx/conf.d/default.conf
