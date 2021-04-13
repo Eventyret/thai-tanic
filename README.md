@@ -43,7 +43,9 @@ Again the use of strapi would let me use `sqlite` `PostgreSQL` `MongoDB` `MySQL`
 A NoSQL database would be great for this mini project but i prefer here to use postgres.
 
 1. Please cd into `backend`
-2. Please create a `.env` to hold out docker files (This could also been used with secrets file but for simplicty i chose to use this)
+2. Please create a `.env` (Where the `docker-compse.yml` is located) to hold out docker files (This could also been used with secrets file but for simplicty i chose to use this)
+   PS: If not using docker we could use the `.env` directy with strapi located inside app.
+
 3. Paste the content below and replacing XX with random strings
    PS: You can use `openssl rand -base64 32` to generate the random string
 
@@ -61,7 +63,7 @@ ENVIRONMENT=development
 ```
 
 4. Please run `docker-compse up -d` this will run in the background.
-   PS: it will take a few minutes first time start up as it will require to download postgres and yarn install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
+   PS: it will take a few minutes first time start up as it will require to download postgres and npm install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
 5. Once started you can setup your own admin user if wanted on `http://localhost:1337/admin`
 6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
    TODO: Automate permissions on first time setup with bootstrap.js
