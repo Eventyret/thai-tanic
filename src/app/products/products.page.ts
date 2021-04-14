@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Product } from '../shared/models/product.model';
 import { ProductsService } from '../shared/services/products.service';
@@ -14,7 +14,8 @@ export class ProductsPage {
   products$: Observable<Product[]>;
   constructor(
     public productsService: ProductsService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private toastCtrl: ToastController
   ) {
     this.get();
   }
@@ -34,9 +35,24 @@ export class ProductsPage {
     await modal.present();
     const { data } = await modal.onDidDismiss();
     console.log(data);
+    const toast = await this.toastCtrl.create({
+      header: data.saveSuccess ? 'All good 🎉' : 'Whospy  🤷‍♀️',
+      color: data.saveSuccess ? 'success' : 'danger',
+      message: data.saveSuccess
+        ? 'We sent it to the backend'
+        : 'Seems we have some connection problems, try again later.',
+    });
+    await toast.present();
+    this.get();
   };
   delete = (id: string | number): void => {
-    this.productsService.delete(id).subscribe(() => {
+    this.productsService.delete(id).subscribe(async () => {
+      const toast = await this.toastCtrl.create({
+        header: 'All good 🎉',
+        color: 'danger',
+        message: 'We removed it from the backend',
+      });
+      await toast.present();
       this.get();
     });
   };

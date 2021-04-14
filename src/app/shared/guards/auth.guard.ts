@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
     if (!this.authService.isAuthenticated()) {
       this.toastCtrl.create({
-        color: 'error',
+        color: 'danger',
         header: 'Hello there',
         message: 'Seems you got caught sneaking around',
       });

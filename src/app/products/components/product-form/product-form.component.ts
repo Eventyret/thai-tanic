@@ -31,20 +31,36 @@ export class ProductFormComponent implements OnInit {
       this.productModel = product;
     });
   }
-  create(): void {
-    const newProduct = {
-      ...this.productForm.value,
-    };
-    this.productService
-      .create(newProduct)
-      .pipe(
-        catchError(() => {
-          this.modalCtrl.dismiss({ saveSuccess: false });
-          return of(false);
-        })
-      )
-      .subscribe(() => {
-        this.modalCtrl.dismiss({ saveSuccess: true });
-      });
+  createOrEdit(): void {
+    console.log(this.productModel);
+    if (this.productModel === null) {
+      this.productService
+        .create(this.productForm.value)
+        .pipe(
+          catchError(() => {
+            this.modalCtrl.dismiss({ saveSuccess: false });
+            return of(false);
+          })
+        )
+        .subscribe(() => {
+          this.modalCtrl.dismiss({ saveSuccess: true });
+        });
+    } else {
+      const newProduct = {
+        ...this.productForm.value,
+        id: this.productModel.id,
+      };
+      this.productService
+        .update(this.productModel.id, newProduct)
+        .pipe(
+          catchError(() => {
+            this.modalCtrl.dismiss({ saveSuccess: false });
+            return of(false);
+          })
+        )
+        .subscribe(() => {
+          this.modalCtrl.dismiss({ saveSuccess: true });
+        });
+    }
   }
 }
