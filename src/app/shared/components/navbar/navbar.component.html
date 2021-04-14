@@ -1,3 +1,13 @@
-<p>
-  navbar works!
-</p>
+<ion-header [translucent]="true" *ngIf="title" color="primary">
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{title}}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button [autoHide]="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="authService.logout()">
+      <ion-icon slot=" icon-only" name="log-out-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
