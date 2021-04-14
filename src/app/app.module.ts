@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { IonicRouteStrategy } from '@ionic/angular';
-import { IonicStorageModule, Storage } from '@ionic/storage-angular';
+import { IonicStorageModule, Storage } from '@ionic/storage';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

@@ -8,7 +8,7 @@ import { AutoLoginGuard } from './shared/guards/autologin.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     loadChildren: (): Promise<LoginPageModule> =>
       import('./auth/login/login.module').then((m) => m.LoginPageModule),
     canActivate: [AutoLoginGuard],
@@ -26,6 +26,11 @@ const routes: Routes = [
     loadChildren: (): Promise<ProductsPageModule> =>
       import('./products/products.module').then((m) => m.ProductsPageModule),
     canActivate: [AuthGuard],
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
   },
 ];
 
