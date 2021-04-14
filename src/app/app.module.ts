@@ -9,16 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 
-export function jwtOptionsFactory(
-  storage: any
-): {
+export function jwtOptionsFactory(): {
   tokenGetter(): string;
   allowedDomains: string[];
   disallowedRoutes: string[];
 } {
   return {
     tokenGetter: (): string => {
-      return storage.get(environment.TOKEN_KEY);
+      return localStorage.getItem(environment.TOKEN_KEY);
     },
     allowedDomains: [environment.apiURL],
     disallowedRoutes: [environment.loginEndpoint, environment.registerEndpoint],
@@ -37,7 +35,6 @@ export function jwtOptionsFactory(
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
         useFactory: jwtOptionsFactory,
-        deps: [Storage],
       },
     }),
   ],
