@@ -11,7 +11,28 @@
       <ion-img src="/assets/logo.png"></ion-img>
       <ion-card>
         <ion-card-content>
-<!-- TODO: Add FORM -->
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="loginForm">
+            </formly-form>
+            <ion-row>
+              <ion-col size="6" size-sm="12">
+                <ion-button class="ion-padding-horizontal" expand="block" color="primary" routerLink="/register"
+                  routerDirection="root" [state]="
+                                                              { data: {
+                                                                email: this.loginForm.value.email,
+                                                                password: this.loginForm.value.password
+                                                              }}">
+                  Register
+                </ion-button>
+
+              </ion-col>
+              <ion-col size="6" size-sm="12">
+                <ion-button class="ion-padding-horizontal" type="submit" color="success" expand="block"
+                  [disabled]="!loginForm.valid">Login
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
         </ion-card-content>
       </ion-card>
     </ion-col>
