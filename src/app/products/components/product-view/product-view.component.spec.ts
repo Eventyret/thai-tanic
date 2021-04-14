@@ -1,24 +1,24 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { ProductViewComponent } from './product-view.component';
 
 describe('ProductViewComponent', () => {
   let component: ProductViewComponent;
   let fixture: ComponentFixture<ProductViewComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
+    const modalControllerStub = () => ({});
     TestBed.configureTestingModule({
-      declarations: [ ProductViewComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
-
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [ProductViewComponent],
+      providers: [{ provide: ModalController, useFactory: modalControllerStub }]
+    });
     fixture = TestBed.createComponent(ProductViewComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  });
 
-  it('should create', () => {
+  it('can load instance', () => {
     expect(component).toBeTruthy();
   });
 });
