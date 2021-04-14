@@ -24,20 +24,19 @@ export class ProductsService {
       environment.apiURL + environment.productsEndpoint
     );
   }
-  create(): Observable<Product> {
-    return this.apiService.update(
+  create(product: Product): Observable<Product> {
+    return this.apiService.post(
       environment.apiURL + environment.productsEndpoint,
-      {
-        // Add payload here
-      }
+      product
     );
   }
-  update(id: number | string): Observable<Partial<Product>> {
+  update(
+    id: number | string,
+    product: Partial<Product>
+  ): Observable<Partial<Product>> {
     return this.apiService.update(
       environment.apiURL + environment.productsEndpoint + id,
-      {
-        // Add payload here
-      }
+      product
     );
   }
   delete(id: number | string): Observable<Product> {
