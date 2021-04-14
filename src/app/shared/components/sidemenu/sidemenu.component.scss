@@ -1,0 +1,96 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--ion-color-tertiary);
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: var(--ion-safe-area-bottom);
+}
+
+.header {
+  padding: 5rem;
+  padding-top: calc(var(--ion-safe-area-top) + 1.5rem);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  padding-left: 0.5rem;
+}
+
+.logo {
+  ::ng-deep {
+    & .avatar-container {
+      height: 100px;
+      max-width: 200px;
+    }
+
+    & .avatar-content {
+      text-align: center;
+      border-radius: 50%;
+      text-transform: uppercase;
+      color: var(--white);
+      background-color: var(--ion-color-tertiary) !important;
+      font: 2rem / 100px Helvetica, Arial, sans-serif !important;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 2;
+}
+
+.nav-item {
+  padding: 0.75rem 0.5rem 0 0.5rem;
+  color: var(--ion-color-primary)
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.footer-nav {
+  padding: 0.5rem;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-app-version {
+  padding: 0.3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ion-color-medium);
+}
+
+.item-background-color {
+  --ion-item-background: transparent;
+
+  ion-icon {
+    color: var(--ion-color-primary);
+  }
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+ion-label {
+  font-family: var(--ion-font-header-family) !important;
+  font-weight: 500;
+}
+ion-menu-toggle:last-child {
+  margin-top: auto;
+}
