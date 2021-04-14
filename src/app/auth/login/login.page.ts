@@ -56,6 +56,7 @@ export class LoginPage implements OnInit {
               err.status === 400
                 ? 'Username or password is incorrect'
                 : 'Seems we have some connection problems, try again later.',
+            duration: 2000,
           });
           return of(null);
         }),

@@ -45,6 +45,7 @@ export class ProductsPage implements OnInit {
       message: data.saveSuccess
         ? 'We sent it to the backend'
         : 'Seems we have some connection problems, try again later.',
+      duration: 2000,
     });
     await toast.present();
     this.get();
@@ -55,6 +56,7 @@ export class ProductsPage implements OnInit {
         header: 'All good 🎉',
         color: 'danger',
         message: 'We removed it from the backend',
+        duration: 2000,
       });
       await toast.present();
       this.get();

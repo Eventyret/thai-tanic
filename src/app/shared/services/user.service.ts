@@ -34,6 +34,7 @@ export class UserService {
               header: 'Oh noes 😱  🤷‍♀️',
               message:
                 'Seems we have some connection problems, try again later.',
+              duration: 2000,
             });
             return throwError(err);
           })

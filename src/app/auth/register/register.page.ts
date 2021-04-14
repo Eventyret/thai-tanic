@@ -56,6 +56,7 @@ export class RegisterPage implements OnInit {
               err.status === 400
                 ? 'Username already taken'
                 : 'Seems we have some connection problems, try again later.',
+            duration: 2000,
           });
           await toast.present();
           return of(false);

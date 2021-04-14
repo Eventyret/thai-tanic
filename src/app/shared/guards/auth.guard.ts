@@ -18,6 +18,7 @@ export class AuthGuard implements CanActivate {
         color: 'danger',
         header: 'Hello there',
         message: 'Seems you got caught sneaking around',
+        duration: 2000,
       });
       this.router.navigate(['login']);
       return false;
