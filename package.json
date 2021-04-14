@@ -1,8 +1,8 @@
 {
   "name": "thai-tanic",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "0.1.0",
+  "author": "Simen Daehlin",
+  "homepage": "https://dehlin.dev/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,6 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@capacitor/core": "2.4.7",
     "@ionic/angular": "^5.5.2",
-    "@ionic/storage-angular": "^3.0.6",
     "@ngx-formly/core": "^5.10.17",
     "@ngx-formly/ionic": "^5.10.17",
     "rxjs": "~6.6.0",

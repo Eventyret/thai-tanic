@@ -1,9 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Authentication</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" color="primary">
+  <ion-row>
+    <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+      offset-xl="4">
+      <ion-img src="/assets/logo.png"></ion-img>
+      <ion-card>
+        <ion-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="loginForm">
+            </formly-form>
+            <ion-row>
+              <ion-col size="6" size-sm="12">
+                <ion-button class="ion-padding-horizontal" expand="block" color="primary" routerLink="/register"
+                  routerDirection="root" [state]="
+                                                              { data: {
+                                                                email: this.loginForm.value.email,
+                                                                password: this.loginForm.value.password
+                                                              }}">
+                  Register
+                </ion-button>
 
+              </ion-col>
+              <ion-col size="6" size-sm="12">
+                <ion-button class="ion-padding-horizontal" type="submit" color="success" expand="block"
+                  [disabled]="!loginForm.valid">Login
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4" offset="4">
+      <ion-footer class="ion-text-center">
+        <ion-skeleton-text animate *ngIf="!version"></ion-skeleton-text>
+        <ion-card-subtitle *ngIf="version">App Version {{version}}</ion-card-subtitle>
+      </ion-footer>
+    </ion-col>
+  </ion-row>
 </ion-content>

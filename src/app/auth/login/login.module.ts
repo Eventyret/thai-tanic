@@ -1,15 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-
+import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginPageRoutingModule } from './login-routing.module';
-
 import { LoginPage } from './login.page';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, LoginPageRoutingModule],
+  imports: [CommonModule, LoginPageRoutingModule, SharedModule],
   declarations: [LoginPage],
 })
 export class LoginPageModule {}
