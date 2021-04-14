@@ -13,6 +13,8 @@ import {
 } from '../forms/validation/validations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
+import { AvatarModule } from 'ngx-avatar';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [NavbarComponent, SidemenuComponent],
@@ -21,6 +23,8 @@ import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
     IonicModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
+    AvatarModule,
     FormlyModule.forRoot({
       validators: [
         { name: 'email', validation: emailValidator },
@@ -42,6 +46,7 @@ import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
     FormlyIonicModule,
     NavbarComponent,
     SidemenuComponent,
+    AvatarModule,
   ],
 })
 export class SharedModule {}
