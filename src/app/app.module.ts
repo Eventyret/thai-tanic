@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { IonicStorageModule, Storage } from '@ionic/storage-angular';
+import { HttpClientModule } from '@angular/common/http';
 export function jwtOptionsFactory(
   storage: any
 ): {
@@ -33,6 +34,7 @@ export function jwtOptionsFactory(
     BrowserModule,
     IonicStorageModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     SharedModule,
     JwtModule.forRoot({
       jwtOptionsProvider: {
