@@ -61,10 +61,8 @@ export class LoginPage implements OnInit {
         }),
         finalize(() => loading.dismiss())
       )
-      .subscribe((res) => {
-        if (res) {
-          this.router.navigateByUrl('/products');
-        }
+      .subscribe(() => {
+        this.router.navigateByUrl('/products');
       });
   }
 }
