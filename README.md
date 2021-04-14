@@ -37,7 +37,9 @@ NOTE: Please make sure you are in the root of the project folder/
 
 ### Running Deployed app
 
-1. Please run `docker build thaitanic:latest .`
+If you want to automate most and don't want to run the ionic server you can run the provided docker image i created
+
+1. Please run `docker build -t thaitanic:latest .`
    PS: You can rename `thaitanic` to anything you want
 2. Once completed you can run this by executing `docker run -d --rm -p 80:80 thaitanic:latest`
    PS: If you renamed it please replace `thaitanic` with anything you want it to be
@@ -78,11 +80,11 @@ ENVIRONMENT=development
    PS: it will take a few minutes first time start up as it will require to download postgres and yarn install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
    PS: You can also do `docker logs strapi -f` to keep an eye on the logs live
 
-   Go get a coffee while docker does it's thing ☕️
+   - ☕️Coffe Break - Go get a coffee while docker does it's thing
 
-5. Once started you can setup your own admin user if wanted on `http://localhost:1337/admin`
+5. Once started you can setup your own admin user by visiting `http://localhost:1337/admin`
 6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
-7. Permissions needs to be given in Admin Settings.
+7. Permissions needs to be given in Admin Settings for the front end to work correctly
 
    - Settings > Roles > Authenticated (Press the pencil ✏️ to edit)
    - Under **Application** > **PRODUCTS** please give all permissions by using **select all** (count is not needed so for security feel free to uncheck this)
@@ -194,3 +196,24 @@ The backend should now be ready to be used so feel free to startup the frontend 
   "hobbies": ["Gaming", "Tech Geek", "Spending time with my wife"]
 }
 ```
+
+- How long did you spend on the coding test?
+
+  > Several hours (I prefer do a good job rather then quick smash and grab jobs to have it be redone)
+
+- Did you manage to cover everything that you wanted to?
+
+  > As i did spend more time on it then just a few hours yes i did cover most things, i do feel i could do a bit more error handling on things and or adding interceptors to deal with most errors and or loading spinners and feedback to users etc.
+
+- What would you add to your solution if you had more time?
+  > Due scalability of this **AMAZING** app and the Thaitanic reputation **NGRX** store would be next choice when scalability is needed
+- Would you choose different technologies if this were to become a reliable
+  enterprise system? Why? Or, why not?
+  > For a mobile app flutter would be good, but for a WEB application any PWA could be good as well
+
+## What did i think of the test
+
+A fun test for me, i did enjoy getting my hands dirty with one of my favourite framworks
+Maybe less of the questions or have the questions before having a tech test to save on some of the time and or if it would fit the team person.
+
+I feel a CRUD application is a great way to have a person show their skills of, it's quite open so fair indeed. It's up to the user to show best practices etc. Overall i did really enjoy it hence the extra hours on it and attention to deployment and details
