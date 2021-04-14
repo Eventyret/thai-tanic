@@ -15,6 +15,9 @@ export class ProductsService {
   getAll(): Observable<Product[]> {
     return;
   }
+  create(): Observable<Product> {
+    return;
+  }
   update(id: number | string): Observable<Partial<Product>> {
     return;
   }
