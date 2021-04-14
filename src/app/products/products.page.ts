@@ -39,7 +39,6 @@ export class ProductsPage implements OnInit {
     this.productsService.selectedProduct(product);
     await modal.present();
     const { data } = await modal.onDidDismiss();
-    console.log(data);
     const toast = await this.toastCtrl.create({
       header: data.saveSuccess ? 'All good 🎉' : 'Whospy  🤷‍♀️',
       color: data.saveSuccess ? 'success' : 'danger',

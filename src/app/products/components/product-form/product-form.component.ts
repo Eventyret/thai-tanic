@@ -32,7 +32,6 @@ export class ProductFormComponent implements OnInit {
     });
   }
   createOrEdit(): void {
-    console.log(this.productModel);
     if (this.productModel === null) {
       this.productService
         .create(this.productForm.value)

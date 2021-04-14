@@ -27,7 +27,6 @@ export class UserService {
         .get(environment.apiURL + environment.userEndpoint + id)
         .pipe(
           take(1),
-          tap((v) => console.log('data', v)),
           tap((userData: User) => this.user.next(userData)),
           catchError((err) => {
             this.authService.logout();
