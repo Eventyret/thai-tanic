@@ -7,6 +7,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { of } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { RegistrationFieldFormsConfig } from 'src/app/forms/fields/register.fields';
+import { AuthUser } from 'src/app/shared/models/auth.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -18,9 +19,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class RegisterPage implements OnInit {
   registrationForm = new FormGroup({});
   options: FormlyFormOptions = {};
-  model = {} as any;
+  model = {} as AuthUser;
   fields: FormlyFieldConfig[];
-  private redirectEnabled = true;
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -41,7 +41,6 @@ export class RegisterPage implements OnInit {
       cssClass: 'spinner',
     });
     loading.present();
-
     this.authService
       .register({
         username: this.model.email.toLowerCase(),
@@ -50,7 +49,6 @@ export class RegisterPage implements OnInit {
       })
       .pipe(
         catchError(async (err: HttpErrorResponse) => {
-          this.redirectEnabled = false;
           this.loadingCtrl.dismiss();
           const toast = await this.toastCtrl.create({
             header: 'Whospy  🤷‍♀️',
@@ -65,9 +63,7 @@ export class RegisterPage implements OnInit {
         finalize(() => loading.dismiss())
       )
       .subscribe(() => {
-        if (this.redirectEnabled) {
-          this.router.navigateByUrl('/products');
-        }
+        this.router.navigateByUrl('/products');
       });
   }
 }
