@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { Observable, from, BehaviorSubject } from 'rxjs';
-import { switchMap, take, map } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
+import { BehaviorSubject, from, Observable } from 'rxjs';
+import { map, switchMap, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AuthUser, AuthResponse } from '../models/auth.model';
+import { AuthResponse, AuthUser } from '../models/auth.model';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -12,11 +12,7 @@ import { ApiService } from './api.service';
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(null);
   isLoggedIn$: Observable<boolean> = this.loggedIn.asObservable();
-  constructor(
-    private apiService: ApiService,
-    private jwtHelperService: JwtHelperService,
-    private storage: Storage
-  ) {}
+  constructor(private apiService: ApiService, private storage: Storage) {}
 
   login(credentials: AuthUser): Observable<any> {
     return this.apiService
