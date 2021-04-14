@@ -34,4 +34,18 @@ export class AuthService {
         })
       );
   }
+
+  register(credentials: AuthUser): Observable<any> {
+    return this.apiService
+      .post(environment.apiURL + environment.registerEndpoint, credentials)
+      .pipe(
+        take(1),
+        switchMap(() => {
+          return this.login({
+            identifier: credentials.email,
+            password: credentials.password,
+          });
+        })
+      );
+  }
 }
