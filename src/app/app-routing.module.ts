@@ -11,7 +11,7 @@ const routes: Routes = [
     path: '',
     loadChildren: (): Promise<LoginPageModule> =>
       import('./auth/login/login.module').then((m) => m.LoginPageModule),
-    canLoad: [AutologinGuard],
+    canActivate: [AutologinGuard],
   },
   {
     path: 'register',
@@ -19,13 +19,13 @@ const routes: Routes = [
       import('./auth/register/register.module').then(
         (m) => m.RegisterPageModule
       ),
-    canLoad: [AutologinGuard],
+    canActivate: [AutologinGuard],
   },
   {
     path: 'products',
     loadChildren: (): Promise<ProductsPageModule> =>
       import('./products/products.module').then((m) => m.ProductsPageModule),
-    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
   },
 ];
 
