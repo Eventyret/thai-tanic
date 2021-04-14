@@ -33,4 +33,9 @@ export class ProductsPage {
     this.productsService.selectedProduct(product);
     await modal.present();
   };
+  delete = (id: string | number): void => {
+    this.productsService.delete(id).subscribe((data) => {
+      this.get();
+    });
+  };
 }
