@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
-import { version } from 'node:process';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { RegistrationFieldFormsConfig } from 'src/app/forms/fields/register.fields';
 
 @Component({
@@ -12,7 +11,6 @@ import { RegistrationFieldFormsConfig } from 'src/app/forms/fields/register.fiel
   providers: [RegistrationFieldFormsConfig],
 })
 export class RegisterPage implements OnInit {
-  version: string = version;
   registrationForm = new FormGroup({});
   options: FormlyFormOptions = {};
   model = {} as any;
