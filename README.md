@@ -67,4 +67,6 @@ ENVIRONMENT=development
    PS: it will take a few minutes first time start up as it will require to download postgres and yarn install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
 5. Once started you can setup your own admin user if wanted on `http://localhost:1337/admin`
 6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
+7. Permissions needs to be given in Admin Settings.
+
    TODO: Automate permissions on first time setup with bootstrap.js
