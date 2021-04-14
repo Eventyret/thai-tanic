@@ -18,7 +18,7 @@ export function jwtOptionsFactory(): {
     tokenGetter: (): string => {
       return localStorage.getItem(environment.TOKEN_KEY);
     },
-    allowedDomains: [environment.apiURL],
+    allowedDomains: [environment.apiURL, environment.apiDomain],
     disallowedRoutes: [environment.loginEndpoint, environment.registerEndpoint],
   };
 }
