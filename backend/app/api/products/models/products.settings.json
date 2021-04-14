@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "products",
   "info": {
-    "name": "Products"
+    "name": "Products",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -17,7 +18,7 @@
       "type": "decimal"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "category": {
       "type": "enumeration",
