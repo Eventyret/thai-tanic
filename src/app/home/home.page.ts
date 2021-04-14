@@ -8,6 +8,7 @@ import { UserService } from '../shared/services/user.service';
 })
 export class HomePage implements OnInit {
   constructor(private userService: UserService) {}
+
   ngOnInit(): void {
     this.userService.getUserData().subscribe();
   }
