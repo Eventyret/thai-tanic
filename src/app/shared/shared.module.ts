@@ -11,14 +11,20 @@ import {
   requireValidationMessage,
   minlengthValidationMessage,
 } from '../forms/validation/validations';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
+import { AvatarModule } from 'ngx-avatar';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [],
+  declarations: [NavbarComponent, SidemenuComponent],
   imports: [
     CommonModule,
     IonicModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
+    AvatarModule,
     FormlyModule.forRoot({
       validators: [
         { name: 'email', validation: emailValidator },
@@ -38,6 +44,9 @@ import {
     ReactiveFormsModule,
     FormlyModule,
     FormlyIonicModule,
+    NavbarComponent,
+    SidemenuComponent,
+    AvatarModule,
   ],
 })
 export class SharedModule {}

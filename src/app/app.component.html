@@ -1,3 +1,8 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content" [when]="false">
+    <ion-menu contentId="main-content" type="overlay" color="primary">
+      <app-sidemenu></app-sidemenu>
+    </ion-menu>
+    <ion-router-outlet id="main-content" main></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

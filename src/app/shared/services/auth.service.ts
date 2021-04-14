@@ -21,6 +21,10 @@ export class AuthService {
     this.isAuthenticated();
   }
 
+  getUserToken(): any {
+    return this.userData.getValue();
+  }
+
   login(credentials: AuthUser): Observable<any> {
     return this.apiService
       .post(environment.apiURL + environment.loginEndpoint, credentials)
