@@ -1,7 +1,12 @@
 import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 export function requireValidationMessage(): string {
   return `This field is required`;
+}
+
+export function minlengthValidationMessage(field: FormlyFieldConfig): string {
+  return `Should have at least ${field.templateOptions.minLength} characters`;
 }
 
 export function emailValidationMessage(): string {
