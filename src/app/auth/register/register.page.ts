@@ -66,7 +66,7 @@ export class RegisterPage implements OnInit {
       )
       .subscribe(() => {
         if (this.redirectEnabled) {
-          this.router.navigateByUrl('/tutorial');
+          this.router.navigateByUrl('/products');
         }
       });
   }
