@@ -11,9 +11,11 @@ import {
   requireValidationMessage,
   minlengthValidationMessage,
 } from '../forms/validation/validations';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [NavbarComponent, SidemenuComponent],
   imports: [
     CommonModule,
     IonicModule.forRoot(),
@@ -38,6 +40,8 @@ import {
     ReactiveFormsModule,
     FormlyModule,
     FormlyIonicModule,
+    NavbarComponent,
+    SidemenuComponent,
   ],
 })
 export class SharedModule {}
