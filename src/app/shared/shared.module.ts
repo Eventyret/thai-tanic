@@ -9,6 +9,7 @@ import {
   fieldMatchValidator,
   emailValidationMessage,
   requireValidationMessage,
+  minlengthValidationMessage,
 } from '../forms/validation/validations';
 
 @NgModule({
