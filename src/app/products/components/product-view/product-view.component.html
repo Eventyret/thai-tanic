@@ -1,0 +1,11 @@
+<ng-container *ngIf="(productsService.product$ | async)  as product">
+  <ion-header translucent>
+    <ion-toolbar color="primary">
+      <ion-title>{{(product ? 'Edit' : 'Add')}}</ion-title>
+      <ion-button fill="clear" (click)="modalCtrl.dismiss()" slot="end">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+  {{[product| json]}}
+</ng-container>
