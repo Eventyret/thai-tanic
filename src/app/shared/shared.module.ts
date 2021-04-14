@@ -4,6 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyIonicModule } from '@ngx-formly/ionic';
 import { IonicModule } from '@ionic/angular';
+import {
+  emailValidator,
+  fieldMatchValidator,
+  emailValidationMessage,
+  requireValidationMessage,
+} from '../forms/validation/validations';
 
 @NgModule({
   declarations: [],
@@ -12,7 +18,17 @@ import { IonicModule } from '@ionic/angular';
     IonicModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({
+      validators: [
+        { name: 'email', validation: emailValidator },
+        { name: 'fieldMatch', validation: fieldMatchValidator },
+      ],
+      validationMessages: [
+        { name: 'email', message: emailValidationMessage },
+        { name: 'required', message: requireValidationMessage },
+        { name: 'minlength', message: minlengthValidationMessage },
+      ],
+    }),
     FormlyIonicModule,
   ],
   exports: [
