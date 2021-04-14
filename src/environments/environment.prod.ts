@@ -4,5 +4,5 @@ export const environment = {
   ...commonEnv,
   production: true,
   apiDomain: 'thaitanicapi.fairytales.dev',
-  apiUrl: 'https://thaitanicapi.fairytales.dev',
+  apiURL: 'https://thaitanicapi.fairytales.dev',
 };
