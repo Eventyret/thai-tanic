@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { take, map } from 'rxjs/operators';
-import {
-  AlertController,
-  LoadingController,
-  ToastController,
-} from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
