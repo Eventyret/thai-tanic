@@ -62,7 +62,7 @@ export class LoginPage implements OnInit {
         finalize(() => loading.dismiss())
       )
       .subscribe(() => {
-        this.router.navigateByUrl('/products');
+        this.router.navigateByUrl('/home');
       });
   }
 }

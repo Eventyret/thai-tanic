@@ -9,14 +9,14 @@ export class SideMenuConfig {
   constructor() {
     this.pages = [
       {
+        title: 'Home',
+        url: '/home',
+        icon: 'person',
+      },
+      {
         title: 'Products',
         url: '/products',
         icon: 'fast-food',
-      },
-      {
-        title: 'Profile (Soon)',
-        url: '/products',
-        icon: 'person',
       },
     ];
   }

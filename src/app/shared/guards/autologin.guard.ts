@@ -11,7 +11,7 @@ export class AutoLoginGuard implements CanActivate {
     if (!this.authService.isAuthenticated()) {
       return true;
     }
-    this.router.navigateByUrl('/products');
+    this.router.navigateByUrl('/home');
     return false;
   }
 }
