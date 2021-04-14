@@ -32,9 +32,11 @@ export class ProductsPage {
     });
     this.productsService.selectedProduct(product);
     await modal.present();
+    const { data } = await modal.onDidDismiss();
+    console.log(data);
   };
   delete = (id: string | number): void => {
-    this.productsService.delete(id).subscribe((data) => {
+    this.productsService.delete(id).subscribe(() => {
       this.get();
     });
   };
