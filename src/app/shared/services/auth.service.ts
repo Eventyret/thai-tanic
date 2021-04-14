@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AuthResponse, AuthUser } from '../models/auth.model';
+import { AuthResponse, AuthUser, JWTDecoded } from '../models/auth.model';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(null);
-  isLoggedIn$: Observable<boolean> = this.loggedIn.asObservable();
-  constructor(private apiService: ApiService, private storage: Storage) {}
+  private userData = new BehaviorSubject(null);
+
+  constructor(
+    private apiService: ApiService,
+    private jwtHelperService: JwtHelperService,
+    private router: Router
+  ) {
+    this.isAuthenticated();
+  }
 
   login(credentials: AuthUser): Observable<any> {
     return this.apiService
@@ -20,13 +27,10 @@ export class AuthService {
       .pipe(
         take(1),
         map((res: AuthResponse) => {
-          return res.jwt;
-        }),
-        switchMap((token) => {
-          this.loggedIn.next(true);
-          const token$ = from(this.storage.set(environment.TOKEN_KEY, token));
-          localStorage.setItem(environment.TOKEN_KEY, token);
-          return token$;
+          const decoded = this.jwtHelperService.decodeToken(res.jwt);
+          this.userData.next(decoded);
+          localStorage.setItem(environment.TOKEN_KEY, res.jwt);
+          return from(res.jwt);
         })
       );
   }
@@ -43,5 +47,23 @@ export class AuthService {
           });
         })
       );
+  }
+
+  isAuthenticated(): boolean {
+    const token: string = localStorage.getItem(environment.TOKEN_KEY);
+    const decoded: JWTDecoded = this.jwtHelperService.decodeToken(token);
+    const isExpired: boolean = this.jwtHelperService.isTokenExpired(token);
+    this.userData.next(decoded);
+    if (!isExpired && token) {
+      return true;
+    } else {
+      // Handle refresh tokens here
+    }
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.userData.next(null);
+    this.router.navigateByUrl('/');
   }
 }
