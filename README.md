@@ -2,6 +2,13 @@
 
 Thai food for the easy minded
 
+- [Thai Tanic](#thai-tanic)
+  - [Tech Stack](#tech-stack)
+  - [Frontend setup](#frontend-setup)
+    - [Running Deployed app](#running-deployed-app)
+  - [Backend setup](#backend-setup)
+  - [Tech Test Questions](#tech-test-questions)
+
 ## Tech Stack
 
 | Tech           | Version | Comment                                                           |
@@ -22,6 +29,12 @@ Thai food for the easy minded
 
 ## Frontend setup
 
+NOTE: Please make sure you are in the root of the project folder/
+
+1. Execute the following command in the terminal of your choice `npm install`
+2. To start the server you can run `ionic serve`
+   PS: If you want to see how it looks for mobile you can run `ionic serve --lab`
+
 ### Running Deployed app
 
 1. Please run `docker build thaitanic:latest .`
@@ -32,8 +45,6 @@ Thai food for the easy minded
    PS: To make sure it's fully working and to login please make sure the backend is also setup.
 
 ## Backend setup
-
-### Local Setup
 
 To run and work with the backend please make sure you are int he `backend` folder.
 
@@ -65,11 +76,28 @@ ENVIRONMENT=development
 
 4. Please run `docker-compse up -d` this will run in the background.
    PS: it will take a few minutes first time start up as it will require to download postgres and yarn install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
+   PS: You can also do `docker logs strapi -f` to keep an eye on the logs live
+
+   Go get a coffee while docker does it's thing ☕️
+
 5. Once started you can setup your own admin user if wanted on `http://localhost:1337/admin`
 6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
 7. Permissions needs to be given in Admin Settings.
 
-## Tech Test Questions:
+   - Settings > Roles > Authenticated (Press the pencil ✏️ to edit)
+   - Under **Application** > **PRODUCTS** please give all permissions by using **select all** (count is not needed so for security feel free to uncheck this)
+
+   - Under **USERS-PERMISSIONS** > **USER** please give the following permissions:
+     - [x] find
+     - [x] me
+     - [x] findOne
+     - [x] update
+
+8. Once completed please scroll to the top and press SAVE
+
+The backend should now be ready to be used so feel free to startup the frontend by checking out [Running Deployed app](#running-deployed-app)
+
+## Tech Test Questions
 
 1. What is the difference between ++a and a++?
 
