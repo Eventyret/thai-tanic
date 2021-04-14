@@ -4,14 +4,14 @@ import { LoginPageModule } from './auth/login/login.module';
 import { RegisterPageModule } from './auth/register/register.module';
 import { ProductsPageModule } from './products/products.module';
 import { AuthGuard } from './shared/guards/auth.guard';
-import { AutologinGuard } from './shared/guards/autologin.guard';
+import { AutoLoginGuard } from './shared/guards/autologin.guard';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: (): Promise<LoginPageModule> =>
       import('./auth/login/login.module').then((m) => m.LoginPageModule),
-    canActivate: [AutologinGuard],
+    canActivate: [AutoLoginGuard],
   },
   {
     path: 'register',
@@ -19,7 +19,7 @@ const routes: Routes = [
       import('./auth/register/register.module').then(
         (m) => m.RegisterPageModule
       ),
-    canActivate: [AutologinGuard],
+    canActivate: [AutoLoginGuard],
   },
   {
     path: 'products',
