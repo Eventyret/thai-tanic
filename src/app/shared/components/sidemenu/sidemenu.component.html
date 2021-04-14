@@ -1,8 +1,8 @@
 <div class="header">
-  <div class="avatar-sidebar">
-    <!-- <ngx-avatar *ngIf="user$ | async as user" class="logo" gravatarId="{{user?.email}}"
-      [name]="user?.firstName + ' ' + user?.lastName">
-    </ngx-avatar> -->
+  <div class="avatar-sidebar" *ngIf="user$ | async as user">
+    <ngx-avatar class="logo" name="{{user?.email}}" size="100" round="true" gravatarId="{{user?.email}}">
+    </ngx-avatar>
+    Welcome {{user?.email}}
   </div>
 </div>
 <div class="nav">

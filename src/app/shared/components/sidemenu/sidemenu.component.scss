@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100%;
   color: var(--ion-color-tertiary);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   padding-bottom: var(--ion-safe-area-bottom);
 }
 
@@ -20,11 +20,11 @@
 .logo {
   ::ng-deep {
     & .avatar-container {
-      height: 100px;
-      max-width: 200px;
+      height: 100px !important;
+      max-width: 200px !important;
     }
 
-    & .avatar-content {
+    & .avatar-content, img {
       text-align: center;
       border-radius: 50%;
       text-transform: uppercase;
@@ -47,7 +47,7 @@
 
 .nav-item {
   padding: 0.75rem 0.5rem 0 0.5rem;
-  color: var(--ion-color-primary)
+  color: var(--ion-color-primary);
 }
 
 .footer {

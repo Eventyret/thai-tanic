@@ -11,11 +11,11 @@ export class SideMenuConfig {
       {
         title: 'Products',
         url: '/products',
-        icon: 'people',
+        icon: 'fast-food',
       },
       {
-        title: 'Profile',
-        url: '/profile',
+        title: 'Profile (Soon)',
+        url: '/products',
         icon: 'person',
       },
     ];
