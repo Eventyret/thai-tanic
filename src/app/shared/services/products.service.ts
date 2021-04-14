@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands */
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product.model';
@@ -10,6 +10,8 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class ProductsService {
+  private productSubject = new BehaviorSubject<Product>(null);
+  product$ = this.productSubject.asObservable();
   constructor(private apiService: ApiService) {}
 
   get(id: string | number): Observable<Product> {
@@ -42,5 +44,8 @@ export class ProductsService {
     return this.apiService.delete(
       environment.apiURL + environment.productsEndpoint + id
     );
+  }
+  selectedProduct(product: Product): void {
+    this.productSubject.next(product);
   }
 }

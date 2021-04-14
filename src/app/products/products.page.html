@@ -5,7 +5,7 @@
     <ion-row class="ion-justify-content-center">
       <ng-container *ngIf="products$ | async; else noProducts">
         <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let p of products$ | async">
-          <ion-card>
+          <ion-card (click)="createOrEdit(p)">
             <img [src]="p.image">
             <ion-card-content>
               <ion-label>
@@ -23,3 +23,9 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="createOrEdit()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
