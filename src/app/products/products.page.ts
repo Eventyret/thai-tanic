@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Product } from '../shared/models/product.model';
 import { ProductsService } from '../shared/services/products.service';
+import { UserService } from '../shared/services/user.service';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @Component({
@@ -10,14 +11,18 @@ import { ProductViewComponent } from './components/product-view/product-view.com
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
 })
-export class ProductsPage {
+export class ProductsPage implements OnInit {
   products$: Observable<Product[]>;
   constructor(
     public productsService: ProductsService,
     private modalCtrl: ModalController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private userService: UserService
   ) {
     this.get();
+  }
+  ngOnInit(): void {
+    this.userService.getUserData().subscribe();
   }
 
   get = (): void => {

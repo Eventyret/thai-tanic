@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { version } from '../../../../../package.json';
+import { User } from '../../models/auth.model';
 import { SideMenu } from '../../models/sidemenu.model';
 import { AuthService } from '../../services/auth.service';
-import { SideMenuConfig } from './sidemenu.config';
-import { version } from '../../../../../package.json';
-import { Observable } from 'rxjs';
-import { User } from '../../models/auth.model';
 import { UserService } from '../../services/user.service';
+import { SideMenuConfig } from './sidemenu.config';
 
 @Component({
   selector: 'app-sidemenu',
@@ -23,7 +23,6 @@ export class SidemenuComponent {
     private userService: UserService,
     private sideMenuConfig: SideMenuConfig
   ) {
-    this.userService.getUserData().subscribe();
     this.user$ = this.userService.user$;
     this.pages = this.sideMenuConfig.pages;
   }
