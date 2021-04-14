@@ -3,20 +3,25 @@ import { FormGroup } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { version } from 'node:process';
+import { RegistrationFieldFormsConfig } from 'src/app/forms/fields/register.fields';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
+  providers: [RegistrationFieldFormsConfig],
 })
 export class RegisterPage implements OnInit {
   version: string = version;
-  loginForm = new FormGroup({});
+  registrationForm = new FormGroup({});
   options: FormlyFormOptions = {};
   model = {} as any;
   fields: FormlyFieldConfig[];
 
-  constructor(private loadingCtrl: LoadingController) {}
+  constructor(
+    private loadingCtrl: LoadingController,
+    private fieldConfig: RegistrationFieldFormsConfig
+  ) {}
 
   ngOnInit(): void {
     this.fields = this.fieldConfig.fields;
