@@ -2,6 +2,13 @@
 
 Thai food for the easy minded
 
+- [Thai Tanic](#thai-tanic)
+  - [Tech Stack](#tech-stack)
+  - [Frontend setup](#frontend-setup)
+    - [Running Deployed app](#running-deployed-app)
+  - [Backend setup](#backend-setup)
+  - [Tech Test Questions](#tech-test-questions)
+
 ## Tech Stack
 
 | Tech           | Version | Comment                                                           |
@@ -22,9 +29,17 @@ Thai food for the easy minded
 
 ## Frontend setup
 
+NOTE: Please make sure you are in the root of the project folder/
+
+1. Execute the following command in the terminal of your choice `npm install`
+2. To start the server you can run `ionic serve`
+   PS: If you want to see how it looks for mobile you can run `ionic serve --lab`
+
 ### Running Deployed app
 
-1. Please run `docker build thaitanic:latest .`
+If you want to automate most and don't want to run the ionic server you can run the provided docker image i created
+
+1. Please run `docker build -t thaitanic:latest .`
    PS: You can rename `thaitanic` to anything you want
 2. Once completed you can run this by executing `docker run -d --rm -p 80:80 thaitanic:latest`
    PS: If you renamed it please replace `thaitanic` with anything you want it to be
@@ -32,8 +47,6 @@ Thai food for the easy minded
    PS: To make sure it's fully working and to login please make sure the backend is also setup.
 
 ## Backend setup
-
-### Local Setup
 
 To run and work with the backend please make sure you are int he `backend` folder.
 
@@ -65,8 +78,142 @@ ENVIRONMENT=development
 
 4. Please run `docker-compse up -d` this will run in the background.
    PS: it will take a few minutes first time start up as it will require to download postgres and yarn install and bootstrap the application remove the `-d` to keep an eye on the docker-compose for any errors and first time setup
-5. Once started you can setup your own admin user if wanted on `http://localhost:1337/admin`
-6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
-7. Permissions needs to be given in Admin Settings.
+   PS: You can also do `docker logs strapi -f` to keep an eye on the logs live
 
-   TODO: Automate permissions on first time setup with bootstrap.js
+   - ☕️Coffe Break - Go get a coffee while docker does it's thing
+
+5. Once started you can setup your own admin user by visiting `http://localhost:1337/admin`
+6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
+7. Permissions needs to be given in Admin Settings for the front end to work correctly
+
+   - Settings > Roles > Authenticated (Press the pencil ✏️ to edit)
+   - Under **Application** > **PRODUCTS** please give all permissions by using **select all** (count is not needed so for security feel free to uncheck this)
+
+   - Under **USERS-PERMISSIONS** > **USER** please give the following permissions:
+     - [x] find
+     - [x] me
+     - [x] findOne
+     - [x] update
+
+8. Once completed please scroll to the top and press SAVE
+
+The backend should now be ready to be used so feel free to startup the frontend by checking out [Running Deployed app](#running-deployed-app)
+
+## Tech Test Questions
+
+1. What is the difference between ++a and a++?
+
+   > One will increment the number BEFORE the current expression the other one after.
+
+2. Can you explain what you consider to be the key differences between
+   object-oriented programming and functional programming?
+
+   > OOP is a stateful programming model while functional is stateless
+
+3. What is the difference between a closure, a callback, a lambda, and a promise?
+
+   > Callbacks are functions that are pased into other functions as arugments, Closures are nested in other functions, Mostly used to avoid Scope clashes
+
+4. Explain logic short-circuiting, and how it can affect the code you write.
+
+   > Not sure about this
+
+5. What are your thoughts on composition versus inheritance?
+6. How would you choose between using a regular expression, a parser, or a simple
+   string search? Give examples.
+
+   > As i'm mostly used to write JS i prefer regular expressions but i presume lower end langauges and or more algorhyms would have other ideas for speed and what is best.
+
+7. Can you explain how dependency injection helps when writing unit tests?
+   > In simple term it helps in the way that you dont need to modify code of any object
+8. Give an example of how you would use defensive programming techniques (other
+   than to sanitise user input).
+
+   > The use of defensive design / programing would apply when getting data or any places where you have async code.
+
+9. Do you think it is good or bad to commit “built” files? (E.g. the output of SCSS, etc.)
+   Explain why.
+
+   > I prefer NOT to commit built files as it pollutes the repo, any developer and or CI/CD can easy build these files.
+   > Though some extend i would say that it's nessary if you do not have any build tools (so scss ->) and the deployed version uses the CSS (things like tailwind), i would say it's fine to keep them.
+
+10. When would you use fully-normalised form, and when would you use JSON
+    columns?
+    > Simple simple forms with not much data or state can use simple forms, preference for me is to use JSON powered forms
+    > as this will give me more flexibility, though simple forms will take less time to write if complexity is needed.
+11. When would you use a stored procedure and why?
+
+    > Not Sure
+
+12. When is it inadvisable to rely upon ORM?
+    > There might be time for a company having security policies where we are unable to use ORM, but mosty it's a good thing to use ORM
+13. What was the mostuseful feature that was added to the latest version of your
+    chosen language? Please include a snippet of code that shows how you've used it. > I would say the Template Literals as types for Typescript 4.1 is quite cool and new.
+
+    ```typescript
+    type Suit = "Hearts" | "Diamonds" | "Clubs" | "Spades";
+    type Rank =
+      | "Ace"
+      | "Two"
+      | "Three"
+      | "Four"
+      | "Five"
+      | "Six"
+      | "Seven"
+      | "Eight"
+      | "Nine"
+      | "Ten"
+      | "Jack"
+      | "Queen"
+      | "King";
+    type Card = `${Rank} of ${Suit}`;
+    const validCard: Card = "Three of Hearts";
+    const invalidCard: Card = "Three of Heart"; // Compiler Error
+    ```
+
+14. What is your preferred approach to responsive design?
+    > Mobile first, bigger the screen more the flare.
+15. Please describe yourself using JSON.
+
+```json
+{
+  "firstName": "Simen",
+  "lastName": "Daehlin",
+  "age": 35,
+  "email": "simen@dehlin.dev",
+  "latestExperience": [
+    {
+      "title": "Lead Developer",
+      "company": "Cropdesk Technologies",
+      "whatIDo": "Designing and leading a team of developer where we build agricultural software"
+    },
+    {
+      "title": "Student Mentor",
+      "company": "Code Institute",
+      "whatIDo": "Mentor new people to code, these are people that might never have touched code before and now doing Code Institute Bootcamp. Here i am to help students with their project and help with best practices"
+    }
+  ],
+  "hobbies": ["Gaming", "Tech Geek", "Spending time with my wife"]
+}
+```
+
+- How long did you spend on the coding test?
+
+  > Several hours (I prefer do a good job rather then quick smash and grab jobs to have it be redone)
+
+- Did you manage to cover everything that you wanted to?
+
+  > As i did spend more time on it then just a few hours yes i did cover most things, i do feel i could do a bit more error handling on things and or adding interceptors to deal with most errors and or loading spinners and feedback to users etc.
+
+- What would you add to your solution if you had more time?
+  > Due scalability of this **AMAZING** app and the Thaitanic reputation **NGRX** store would be next choice when scalability is needed
+- Would you choose different technologies if this were to become a reliable
+  enterprise system? Why? Or, why not?
+  > For a mobile app flutter would be good, but for a WEB application any PWA could be good as well
+
+## What did i think of the test
+
+A fun test for me, i did enjoy getting my hands dirty with one of my favourite framworks
+Maybe less of the questions or have the questions before having a tech test to save on some of the time and or if it would fit the team person.
+
+I feel a CRUD application is a great way to have a person show their skills of, it's quite open so fair indeed. It's up to the user to show best practices etc. Overall i did really enjoy it hence the extra hours on it and attention to deployment and details
