@@ -1,13 +1,15 @@
 # Thai Tanic
 
-Thai food for the easy minded
+Thai food for the easy minded built with Ionic and Strapi
 
 - [Thai Tanic](#thai-tanic)
   - [Tech Stack](#tech-stack)
   - [Frontend setup](#frontend-setup)
+    - [Unit Testing frontend](#unit-testing-frontend)
     - [Running Deployed app](#running-deployed-app)
   - [Backend setup](#backend-setup)
   - [Tech Test Questions](#tech-test-questions)
+  - [What did i think of the test](#what-did-i-think-of-the-test)
 
 ## Tech Stack
 
@@ -34,6 +36,10 @@ NOTE: Please make sure you are in the root of the project folder/
 1. Execute the following command in the terminal of your choice `npm install`
 2. To start the server you can run `ionic serve`
    PS: If you want to see how it looks for mobile you can run `ionic serve --lab`
+
+### Unit Testing frontend
+
+1. Please run `ng test` to run automated tests with Karma
 
 ### Running Deployed app
 
