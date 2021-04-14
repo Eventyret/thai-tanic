@@ -13,7 +13,7 @@ import { version } from '../../../../package.json';
 export class LoginPage implements OnInit {
   version: string = version;
   loginForm = new FormGroup({});
-  public options: FormlyFormOptions = {};
+  options: FormlyFormOptions = {};
   model = {} as LoginFieldFormsConfig;
   fields: FormlyFieldConfig[];
 

@@ -12,7 +12,7 @@ import { version } from 'node:process';
 export class RegisterPage implements OnInit {
   version: string = version;
   loginForm = new FormGroup({});
-  public options: FormlyFormOptions = {};
+  options: FormlyFormOptions = {};
   model = {} as any;
   fields: FormlyFieldConfig[];
 
