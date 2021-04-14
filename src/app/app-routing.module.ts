@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPageModule } from './auth/login/login.module';
 import { RegisterPageModule } from './auth/register/register.module';
 import { HomePageModule } from './home/home.module';
+import { ProductsPageModule } from './products/products.module';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AutologinGuard } from './shared/guards/autologin.guard';
 
@@ -22,9 +23,9 @@ const routes: Routes = [
     canLoad: [AutologinGuard],
   },
   {
-    path: 'home',
-    loadChildren: (): Promise<HomePageModule> =>
-      import('./home/home.module').then((m) => m.HomePageModule),
+    path: 'products',
+    loadChildren: (): Promise<ProductsPageModule> =>
+      import('./products/products.module').then((m) => m.ProductsPageModule),
     canLoad: [AuthGuard],
   },
 ];
