@@ -1,16 +1,15 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
-import { IonicRouteStrategy } from '@ionic/angular';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
-import { environment } from 'src/environments/environment';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule, Storage } from '@ionic/storage-angular';
-import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+
 export function jwtOptionsFactory(
   storage: any
 ): {
