@@ -69,4 +69,100 @@ ENVIRONMENT=development
 6. You can now create a an admin user (Note that in strapi admin user and a normal user are seperated)
 7. Permissions needs to be given in Admin Settings.
 
-   TODO: Automate permissions on first time setup with bootstrap.js
+## Tech Test Questions:
+
+1. What is the difference between ++a and a++?
+
+   > One will increment the number BEFORE the current expression the other one after.
+
+2. Can you explain what you consider to be the key differences between
+   object-oriented programming and functional programming?
+
+   > OOP is a stateful programming model while functional is stateless
+
+3. What is the difference between a closure, a callback, a lambda, and a promise?
+
+   > Callbacks are functions that are pased into other functions as arugments, Closures are nested in other functions, Mostly used to avoid Scope clashes
+
+4. Explain logic short-circuiting, and how it can affect the code you write.
+
+   > Not sure about this
+
+5. What are your thoughts on composition versus inheritance?
+6. How would you choose between using a regular expression, a parser, or a simple
+   string search? Give examples.
+
+   > As i'm mostly used to write JS i prefer regular expressions but i presume lower end langauges and or more algorhyms would have other ideas for speed and what is best.
+
+7. Can you explain how dependency injection helps when writing unit tests?
+   > In simple term it helps in the way that you dont need to modify code of any object
+8. Give an example of how you would use defensive programming techniques (other
+   than to sanitise user input).
+
+   > The use of defensive design / programing would apply when getting data or any places where you have async code.
+
+9. Do you think it is good or bad to commit “built” files? (E.g. the output of SCSS, etc.)
+   Explain why.
+
+   > I prefer NOT to commit built files as it pollutes the repo, any developer and or CI/CD can easy build these files.
+   > Though some extend i would say that it's nessary if you do not have any build tools (so scss ->) and the deployed version uses the CSS (things like tailwind), i would say it's fine to keep them.
+
+10. When would you use fully-normalised form, and when would you use JSON
+    columns?
+    > Simple simple forms with not much data or state can use simple forms, preference for me is to use JSON powered forms
+    > as this will give me more flexibility, though simple forms will take less time to write if complexity is needed.
+11. When would you use a stored procedure and why?
+
+    > Not Sure
+
+12. When is it inadvisable to rely upon ORM?
+    > There might be time for a company having security policies where we are unable to use ORM, but mosty it's a good thing to use ORM
+13. What was the mostuseful feature that was added to the latest version of your
+    chosen language? Please include a snippet of code that shows how you've used it. > I would say the Template Literals as types for Typescript 4.1 is quite cool and new.
+
+    ```typescript
+    type Suit = "Hearts" | "Diamonds" | "Clubs" | "Spades";
+    type Rank =
+      | "Ace"
+      | "Two"
+      | "Three"
+      | "Four"
+      | "Five"
+      | "Six"
+      | "Seven"
+      | "Eight"
+      | "Nine"
+      | "Ten"
+      | "Jack"
+      | "Queen"
+      | "King";
+    type Card = `${Rank} of ${Suit}`;
+    const validCard: Card = "Three of Hearts";
+    const invalidCard: Card = "Three of Heart"; // Compiler Error
+    ```
+
+14. What is your preferred approach to responsive design?
+    > Mobile first, bigger the screen more the flare.
+15. Please describe yourself using JSON.
+
+```json
+{
+  "firstName": "Simen",
+  "lastName": "Daehlin",
+  "age": 35,
+  "email": "simen@dehlin.dev",
+  "latestExperience": [
+    {
+      "title": "Lead Developer",
+      "company": "Cropdesk Technologies",
+      "whatIDo": "Designing and leading a team of developer where we build agricultural software"
+    },
+    {
+      "title": "Student Mentor",
+      "company": "Code Institute",
+      "whatIDo": "Mentor new people to code, these are people that might never have touched code before and now doing Code Institute Bootcamp. Here i am to help students with their project and help with best practices"
+    }
+  ],
+  "hobbies": ["Gaming", "Tech Geek", "Spending time with my wife"]
+}
+```
