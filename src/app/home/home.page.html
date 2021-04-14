@@ -1,9 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar title="Home"></app-navbar>
 
-<ion-content>
+<ion-content padding>
+  <ion-card>
+    <img src="/assets/logo-color.png" />
+    <ion-card-header>
+      <ion-card-title>Welcome to Thaitanic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam earum reprehenderit rerum alias praesentium,
+      minus cumque distinctio sit tempore libero vel debitis quo maiores soluta inventore nisi rem ratione. Quae.
+
+    </ion-card-content>
+    <ion-button color="primary" [routerLink]="['/products']">Go to products</ion-button>
+  </ion-card>
 
 </ion-content>
