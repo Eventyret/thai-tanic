@@ -48,7 +48,7 @@ export class ProductFieldFormsConfig {
                 { value: 'salad', label: 'Salad' },
                 { value: 'curry', label: 'Curry' },
                 { value: 'noodles', label: 'Noodles' },
-                { value: 'Rice', label: 'Rice' },
+                { value: 'rice', label: 'Rice' },
               ],
             },
           },
