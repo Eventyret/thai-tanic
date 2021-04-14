@@ -27,7 +27,7 @@ export class ProductsPage {
       component: ProductViewComponent,
       backdropDismiss: false,
       componentProps: {
-        data: product,
+        title: product ? `Edit ${product.title}` : 'Add Product',
       },
     });
     this.productsService.selectedProduct(product);
