@@ -3,4 +3,5 @@ export const commonEnv = {
   registerEndpoint: '/auth/local/register',
   loginEndpoint: '/auth/local',
   userEndpoint: '/users/',
+  productsEndpoint: '/products/',
 };

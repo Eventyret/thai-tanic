@@ -1,4 +1,39 @@
 <app-navbar title="Thaitanic Food menu"></app-navbar>
-<ion-content>
 
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ng-container *ngIf="products$ | async; else noProducts">
+        <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let p of products$ | async">
+          <ion-card>
+            <ion-card-content>
+              <img [src]="p.image" (click)="createOrEdit(p)" *ngIf="p.image">
+              <img
+                src="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg"
+                (click)="createOrEdit(p)" *ngIf="!p.image">
+              <ion-label (click)="createOrEdit(p)">
+                {{ p.title}}
+                <p>{{ p.price | currency:'GBP' }}</p>
+              </ion-label>
+              <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="delete(p.id)">
+                <ion-fab-button color="danger" size="small">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+      <ng-template #noProducts>
+        Found no products
+      </ng-template>
+
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="createOrEdit()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
