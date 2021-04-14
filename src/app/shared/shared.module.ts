@@ -10,6 +10,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     IonicModule.forRoot(),
+    FormsModule,
     ReactiveFormsModule,
     FormlyModule.forRoot(),
     FormlyIonicModule,
@@ -17,9 +18,9 @@ import { IonicModule } from '@ionic/angular';
   exports: [
     IonicModule,
     FormsModule,
+    ReactiveFormsModule,
     FormlyModule,
     FormlyIonicModule,
-    ReactiveFormsModule,
   ],
 })
 export class SharedModule {}
